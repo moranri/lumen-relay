@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lumen Relay | Ricardo Moran</title>
+  <meta name="description" content="An original energy-routing strategy game. Challenge a search-based AI opponent, seal paths, and outscore the machine.">
+  <link rel="stylesheet" href="style.css"><script src="engine.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+<header><a class="brand" href="./"><span class="brand-icon">L</span> LUMEN RELAY</a><span class="course">TECH3500 / LAB 06</span><a href="#rules">How to play ↗</a></header>
+<main>
+  <section class="intro"><p class="eyebrow">HUMAN INSTINCT. MACHINE STRATEGY.</p><h1>Every move<br>closes a door.</h1><p class="lede">Harvest the light. Seal the path behind you.<br>Outthink ORBIT before the grid goes dark.</p><div class="tags"><span>Original strategy duel</span><span>Human vs AI</span><span>No sign-in</span></div></section>
+  <section class="arena" aria-label="Lumen Relay game">
+    <div class="arena-head"><div><p class="eyebrow">THE RELAY / 5 × 5</p><h2 id="turn-title">Your move.</h2></div><span id="phase" class="status">LIVE</span></div>
+    <div class="scores"><div class="score you"><span><i></i> YOU</span><strong id="you-score">0</strong><small>energy harvested</small></div><div class="score orbit"><span><i></i> ORBIT AI</span><strong id="ai-score">0</strong><small>energy harvested</small></div></div>
+    <div class="game-layout"><div><div id="board" class="board" role="group" aria-label="Game board"></div><p class="legend"><span class="mint-dot"></span> You <span class="orange-dot"></span> ORBIT <span class="outlined-dot"></span> Legal move <span>✦ 8 energy core</span></p></div>
+    <aside class="ai-panel"><p class="eyebrow">INSIDE THE OPPONENT</p><h3>ORBIT</h3><span class="ai-kind">MINIMAX SEARCH AI</span><p id="ai-reason">I evaluate energy, mobility, and your possible replies. Make your first move to begin.</p><label for="difficulty">Search depth</label><select id="difficulty"><option value="1">Scout · 1 ply</option><option value="3" selected>Tactician · 3 plies</option><option value="5">Architect · 5 plies</option></select><label for="first">First turn</label><select id="first"><option value="0">You start</option><option value="1">ORBIT starts</option></select><button id="new-game">New match ↗</button><button id="undo" class="secondary">Undo your last turn</button><p class="small">Runs entirely in your browser. This is strategic game AI, not a ChatGPT or Gemini API.</p></aside></div>
+    <p id="message" class="message" role="status" aria-live="polite">Select a glowing outlined tile. Move 1 or 2 spaces in a straight line.</p>
+    <div class="match-bottom"><span id="move-count">MOVE 00</span><span id="seed-label">GRID 3500</span><button id="rematch">Replay this grid</button></div>
+  </section>
+  <section id="rules" class="rules"><p class="eyebrow">THE RULES</p><h2>Plan the exit<br>before the reward.</h2><div class="rule-grid"><article><span>01</span><h3>Harvest</h3><p>Move your mint token 1 or 2 tiles horizontally or vertically. Collect the destination tile's energy. The central core is worth 8.</p></article><article><span>02</span><h3>Close the path</h3><p>The tile you leave goes dark permanently. You cannot cross dark tiles or jump over the opponent. The middle tile of a two-space move remains available.</p></article><article><span>03</span><h3>Win on energy</h3><p>Turns alternate. If one player is trapped, their turn is skipped. When both are trapped, the higher energy total wins. Equal totals are a draw.</p></article></div><p class="design-note">The challenge: a high-value tile can become a dead end. ORBIT looks ahead at both players' moves, rather than choosing randomly.</p></section>
+  <details class="history"><summary>Match journal</summary><ol id="journal"><li>A symmetrical grid gives both players equal starting resources.</li></ol></details>
+</main>
+<footer><span>Built by Ricardo Moran · Ivelisse Wright · Nicole Edzaguirre</span><span>Original concept · HTML / CSS / JavaScript</span></footer>
+</body></html>
